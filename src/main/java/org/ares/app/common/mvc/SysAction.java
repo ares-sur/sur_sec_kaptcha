@@ -1,10 +1,19 @@
 package org.ares.app.common.mvc;
 
-import static org.ares.app.common.cfg.param.GlobalConfig.*;
+import static org.ares.app.common.cfg.param.GlobalConfig.ERR_MSG_OF_VALID_CODE;
+import static org.ares.app.common.cfg.param.GlobalConfig.RESULT_BOOL_SUCCESS;
+import static org.ares.app.common.cfg.param.GlobalConfig.RESULT_CODE_SUCCESS;
+import static org.ares.app.common.cfg.param.GlobalConfig.RESULT_KEY_CODE;
+import static org.ares.app.common.cfg.param.GlobalConfig.RESULT_KEY_MSG;
+import static org.ares.app.common.cfg.param.GlobalConfig.RESULT_KEY_SUCCESS;
+import static org.ares.app.common.cfg.param.GlobalConfig.RESULT_MSG_SUCCESS_LOGIN;
+import static org.ares.app.common.cfg.param.GlobalConfig.URL_LOGIN;
+import static org.ares.app.common.cfg.param.GlobalConfig.URL_LOGIN_SUCCESS;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.ares.app.common.exception.AppSysException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +28,12 @@ public class SysAction {
 	@ResponseBody
     public void login_error(@RequestParam(value = "error", required = false) String error) {
 		throw new InsufficientAuthenticationException(ERR_MSG_OF_VALID_CODE);
+	}
+	
+	@RequestMapping("/403")
+	@ResponseBody
+    public void access_403() {
+		throw new AppSysException("resource access denied,please try to access again");
 	}
 	
 	@RequestMapping(value = URL_LOGIN_SUCCESS)

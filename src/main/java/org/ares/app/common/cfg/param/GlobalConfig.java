@@ -28,4 +28,23 @@ public class GlobalConfig {
 	public static final String URL_ALLOW_FONTS="/fonts/**";
 	public static final String URL_ALLOW_INDEX="/index*";
 	
+	/***********************************RETURN CODE*******************************************************/
+	public static final int RETCODE_NOT_INNER_SERVICE=440;//内部服务不存在
+	public static final int RETCODE_HTTP_PROCESS_ERROR=480;//Http Error
+	
+	public static final int RETCODE_PROCESS_RIGHT=0;//正确返回
+	public static final int RETCODE_USER_NOT_LOGIN=400;//未登录
+	public static final int RETCODE_NOT_AUTH=401;//未授权
+	public static final int RETCODE_ACCESS_DENIED=403;//资源访问被拒绝
+	public static final int RETCODE_NOT_SERVICE=404;//无此服务
+	public static final int RETCODE_SAME_OBJECT_NAME=405;//
+	
+	public static final int RETCODE_BS_PROCESS_ERROR=-100;//业务处理错误返回
+	public static final int RETCODE_SYS_PROCESS_ERROR=-200;//系统处理错误返回
+	public static final int RETCODE_PARAM_INVALID=-201;//参数无效
+	public static final int RETCODE_NOT_ACCESSKEY=-202;//超时
+	public static final int RETCODE_CONSUMER_SIGN_ERROR=-205;//签名sign验证无效
+	public static final int RETCODE_TIME_OUT=-206;//超时
+	public static final int RETCODE_IP_ERROR=-208;//IP验证错误
+	
 }

@@ -28,6 +28,15 @@
 		});
 		return false;
 	});
+	$(document).on("click", "#logout_btn", function() {
+		var _ctx = "/";
+		$.ajax({
+			url : _ctx + "logout",
+			type : 'POST',
+		});
+		location='/home'
+		return false;
+	});
 </script>
 </head>
 
@@ -44,6 +53,7 @@
 		</form>
 		<div class="marginB10">
 			<button id="login_btn" type="button" class="btn btn-micv5 btn-block globalLogin">登录</button>
+			<button id="logout_btn" type="button" class="btn btn-micv5 btn-block globalLogin">注销</button>
 			<div id="login-form-tips" class="tips-error bg-danger" style="display: none;">错误提示</div>
 		</div>
 	</section>
